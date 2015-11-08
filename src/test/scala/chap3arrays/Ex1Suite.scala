@@ -9,13 +9,13 @@ class Ex1Suite extends FunSuite with Matchers {
 
   test("generated array has only values between 0 (inclusive) and n (exclusive)") {
 
-    val n = anyInt
+    val n = anyPositiveInt
     val a: Array[Int] = randomArray(n)
 
     withClue("Array's [" + a.mkString(",") + "] element") {
       for (e <- a) {
         e should be >= 0
-        e should be <= n
+        e should be < n
       }
     }
   }

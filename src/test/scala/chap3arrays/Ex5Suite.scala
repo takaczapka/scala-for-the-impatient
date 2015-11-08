@@ -9,12 +9,12 @@ class Ex5Suite extends FunSuite with Matchers {
 
   test("avg of single element array is value of the element") {
     val i = anyNumber
-    avg(Array(i)) should be (i)
+    avg(Array(i)) should be (i +- 0.001)
   }
 
   test("avg of array with the same elements is value of any element") {
     val i = anyNumber
-    avg(Array(i, i, i)) should be (i)
+    avg(Array(i, i, i)) should be (i +- 0.001)
   }
 
   test("avg examples") {
