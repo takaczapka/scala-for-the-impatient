@@ -11,4 +11,8 @@ object Generators {
   }
 
   def anyNegativeInt: Int = -anyPositiveInt
+
+  def anyNumber: Double = Random.nextDouble()
+
+  def anyChar: Char = anyInt.toChar
 }
