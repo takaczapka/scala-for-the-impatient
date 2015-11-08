@@ -1,9 +1,13 @@
 #test execution script.
 
 language: scala
+
 sudo: false
+
 before_install: umask 0022
+
 scala:
   - 2.11.7
+
 script:
-  - "echo no op"
+  - sbt ++$TRAVIS_SCALA_VERSION test
