@@ -8,7 +8,7 @@ class Ex10Suite extends FunSuite {
   import Ex10.pow
 
   test("any number pow 0 is 1") {
-    assert(pow(anyNumber, 0) === 1)
+    assert(pow(anyDouble, 0) === 1)
   }
 
   test("powers of 2") {

@@ -12,7 +12,12 @@ object Generators {
 
   def anyNegativeInt: Int = -anyPositiveInt
 
-  def anyNumber: Double = Random.nextDouble()
+  def anyDouble: Double = Random.nextDouble()
+
+  def anyPositiveDouble: Double = {
+    val v = math.abs(anyInt)
+    if (v == 0.0) 1.0 else v
+  }
 
   def anyChar: Char = anyInt.toChar
 }
