@@ -1,6 +1,6 @@
 package chap2controlstructsandfuncs
 
-import generators.Generators._
+import helpers.Generators._
 import org.scalatest.FunSuite
 
 class Ex1Suite extends FunSuite {

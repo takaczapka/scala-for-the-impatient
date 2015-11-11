@@ -1,6 +1,6 @@
 package chap8inheritance
 
-import generators.Generators._
+import helpers.Generators._
 import org.scalatest.{FunSuite, Matchers}
 
 class Ex1Suite extends FunSuite with Matchers {

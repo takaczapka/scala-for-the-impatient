@@ -1,6 +1,6 @@
-package chap9filesandregex
+package helpers
 
-import java.io.{PrintWriter, File}
+import java.io.{File, PrintWriter}
 
 object FileHelpers {
   def createTempFile(content: String = ""): File = {

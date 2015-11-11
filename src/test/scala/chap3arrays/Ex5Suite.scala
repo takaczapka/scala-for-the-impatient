@@ -1,6 +1,6 @@
 package chap3arrays
 
-import generators.Generators._
+import helpers.Generators._
 import org.scalatest.{FunSuite, Matchers}
 
 class Ex5Suite extends FunSuite with Matchers {

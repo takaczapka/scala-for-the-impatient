@@ -1,7 +1,7 @@
 package chap4maps
 
 
-import generators.Generators._
+import helpers.Generators._
 import org.scalatest.{FunSuite, Matchers}
 
 class Ex8Suite extends FunSuite with Matchers {

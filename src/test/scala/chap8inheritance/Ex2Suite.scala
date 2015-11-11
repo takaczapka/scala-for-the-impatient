@@ -1,7 +1,7 @@
 package chap8inheritance
 
 import chap8inheritance.Ex1.BankAccount
-import generators.Generators._
+import helpers.Generators._
 import org.scalatest.{FunSuite, Matchers}
 
 class Ex2Suite extends FunSuite with Matchers {

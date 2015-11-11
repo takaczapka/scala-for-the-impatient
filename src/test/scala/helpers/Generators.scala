@@ -1,4 +1,4 @@
-package generators
+package helpers
 
 import scala.util.Random
 

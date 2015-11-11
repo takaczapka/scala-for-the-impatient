@@ -1,5 +1,6 @@
 package chap9filesandregex
 
+import helpers.FileHelpers
 import org.scalatest.{Matchers, FunSuite}
 
 import FileHelpers._

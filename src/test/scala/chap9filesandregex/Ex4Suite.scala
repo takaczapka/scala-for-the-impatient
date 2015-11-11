@@ -1,6 +1,7 @@
 package chap9filesandregex
 
-import chap9filesandregex.FileHelpers._
+import helpers.FileHelpers
+import FileHelpers._
 import org.scalatest.{FunSuite, Matchers}
 
 class Ex4Suite extends FunSuite with Matchers {
