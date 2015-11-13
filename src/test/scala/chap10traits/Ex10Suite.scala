@@ -8,7 +8,7 @@ import org.scalatest.{FunSuite, Matchers, OneInstancePerTest}
 class Ex10Suite extends FunSuite with Matchers with OneInstancePerTest {
 
   import Ex10._
-  
+
   test("iterate through the content") {
     val content = "find what you love and let it kill you"
 
