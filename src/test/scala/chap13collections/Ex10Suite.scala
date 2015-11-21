@@ -6,7 +6,7 @@ class Ex10Suite extends FunSuite with Matchers {
 
   test("aggregate string frequencies") {
 
-    // vry long string
+    // very long string
     val str = "Anyway, I keep picturing all these little kids playing some game in this big field of rye and all. " +
       "Thousands of little kids, and nobody's around - nobody big, I mean - except me. And I'm standing on the edge " +
       "of some crazy cliff. What I have to do, I have to catch everybody if they start to go over the cliff - I mean " +
@@ -19,7 +19,5 @@ class Ex10Suite extends FunSuite with Matchers {
     }, { (map1, map2) =>
       map1 ++ map2.map { case (k, v) => k -> (v + map1.getOrElse(k, 0)) }
     })
-
-    println(r)
   }
 }
