@@ -102,19 +102,12 @@ object Ex10 {
   }
 
   case class WhileLoop(condition: Condition, statements: List[CodeBlock]) extends CodeBlock {
-    def evaluateWhileBody(c: Context): Context = {
-      statements.foldLeft(c) {
-        case (context, expr) => expr.evaluate(context)
-      }
+    private def evaluateWhileBody(c: Context): Context = statements.foldLeft(c) {
+      case (context, expr) => expr.evaluate(context)
     }
 
-    override def evaluate(c: Context): Context = {
-      var newContext = c  // TODO get rid of this var
-      while (condition.value(newContext)) {
-        newContext = evaluateWhileBody(newContext)
-      }
-      newContext
-    }
+    override def evaluate(c: Context): Context =
+      if (condition.value(c)) evaluate(evaluateWhileBody(c)) else c
   }
 
   case class Application(main: Main, functions: List[AppFunction] = Nil) {
