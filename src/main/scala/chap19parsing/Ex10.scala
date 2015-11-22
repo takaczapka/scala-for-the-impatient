@@ -2,6 +2,12 @@ package chap19parsing
 
 import scala.util.parsing.combinator.syntactical.StandardTokenParsers
 
+// NOTE
+// good reading material:
+//      http://www.labun.com/fh/ma.pdf
+//      https://docs.google.com/presentation/d/1L7I3rm7vbNt3tlz5AI7YdQmpFvOSn7NY4RTZPLCdfyE/edit#slide=id.i65
+
+
 /**
   * 10. Add function definitions to the programming language of the preceding exercise.
   */
