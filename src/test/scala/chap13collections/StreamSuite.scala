@@ -36,7 +36,7 @@ class StreamSuite extends FunSuite with Matchers {
 
     lazy val Naturals: Stream[Int] = {
       def Naturals(n: Int): Stream[Int] = n #:: {
-        hitCounter += 1;
+        hitCounter += 1
         Naturals(n + 1)
       }
       Naturals(1)
@@ -55,7 +55,7 @@ class StreamSuite extends FunSuite with Matchers {
 
     def Naturals: Stream[Int] = {
       def Naturals(n: Int): Stream[Int] = n #:: {
-        hitCounter += 1;
+        hitCounter += 1
         Naturals(n + 1)
       }
       Naturals(1)

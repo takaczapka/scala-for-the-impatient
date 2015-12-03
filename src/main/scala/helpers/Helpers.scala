@@ -8,6 +8,12 @@ object Helpers {
     Thread.sleep(1000)
   }
 
+  def timeIt(block: => Unit): Unit = {
+    val start = System.currentTimeMillis()
+    block
+    println("Time to complete: " + (System.currentTimeMillis() - start))
+  }
+
   def measureIt(block: => Unit): Unit = {
     cleanup()
 
