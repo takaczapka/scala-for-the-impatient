@@ -1,5 +1,8 @@
 package chap4maps
 
+/**
+  * 5. Repeat the preceding exercise with a java.util.TreeMap that you adapt to the Scala API.
+  */
 object Ex5 {
 
   import collection.JavaConversions.mapAsScalaMap
