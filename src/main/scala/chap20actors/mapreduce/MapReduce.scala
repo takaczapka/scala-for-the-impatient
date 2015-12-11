@@ -9,10 +9,11 @@ import chap20actors.mapreduce.MapActor.Work
 import chap20actors.mapreduce.ReduceActor.WorkFinished
 
 import scala.concurrent.Await
+import scala.util.Try
 
 class MapReduce {
 
-  def run[A, B, C](work: Work[A, B, C])(implicit timeout: Timeout = Timeout(10, TimeUnit.SECONDS)): C = {
+  def run[A, B, C](work: Work[A, B, C])(implicit timeout: Timeout = Timeout(10, TimeUnit.SECONDS)): Try[C] = {
     val system = ActorSystem("map-reduce-system")
 
     try {
@@ -23,7 +24,7 @@ class MapReduce {
 
       val result = Await.result(entryActor ? ForwardingActor.Forward(work, mapperActor), timeout.duration)
 
-      result.asInstanceOf[WorkFinished[C]].result
+      result.asInstanceOf[WorkFinished[Try[C]]].result
     } finally {
       system.terminate()
     }

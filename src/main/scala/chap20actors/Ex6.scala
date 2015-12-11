@@ -7,5 +7,5 @@ package chap20actors
   * How many threads are occupied by the first kind, and how many by the second kind?
   */
 object Ex6 {
-
+  // Actors are removed from Scala and Akka doesn't have those constructs.
 }

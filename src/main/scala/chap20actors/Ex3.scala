@@ -9,6 +9,7 @@ import chap20actors.mapreduce.MapActor.Work
 import chap20actors.mapreduce.MapReduce
 
 import scala.io.Source
+import scala.util.Try
 import scala.util.matching.Regex
 
 /**
@@ -18,7 +19,7 @@ import scala.util.matching.Regex
   */
 object Ex3 {
 
-  def countRegexMatches(dir: String, regex: Regex): Int = {
+  def countRegexMatches(dir: String, regex: Regex): Try[Int] = {
     val mapFunction = new MapFunction[String, File] {
       override def apply(dir: String) = Files.files(new File(dir))
     }

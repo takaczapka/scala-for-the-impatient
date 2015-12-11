@@ -1,8 +1,10 @@
 package chap20actors.mapreduce
 
-import akka.actor.{Actor, ActorRef, ActorRefFactory, Stash}
+import akka.actor._
+import chap20actors.mapreduce.ReduceActor.WorkCancelled
 
 import scala.collection.mutable.ArrayBuffer
+import scala.util.{Success, Failure}
 
 
 object Functions {
@@ -50,6 +52,14 @@ class MapActor(reducer: ActorRef, workerMaker: ActorRefFactory => ActorRef) exte
 
   import MapActor._
 
+
+  override def supervisorStrategy: SupervisorStrategy = AllForOneStrategy() {
+    case e: Exception =>
+      reducer ! WorkCancelled(e)
+      akka.actor.SupervisorStrategy.Stop
+  }
+
+
   override def receive: Receive = {
     case Work(data, mapFunction, reduceFunction, computeFunction) =>
       val workItems = mapFunction(data).toSeq
@@ -63,6 +73,8 @@ class MapActor(reducer: ActorRef, workerMaker: ActorRefFactory => ActorRef) exte
 object ReduceActor {
 
   case class WorkSent[T](numberOfTasks: Int, reduce: ReduceFunction[T])
+
+  case class WorkCancelled[T](cause: Throwable)
 
   case class TaskResult[T](result: T)
 
@@ -96,9 +108,10 @@ class ReduceActor(replyTo: ActorRef) extends Actor with Stash {
         results.tail.foreach { a =>
           reduceResult = reduceFunction(reduceResult, a)
         }
-        replyTo ! WorkFinished(reduceResult)
+        replyTo ! WorkFinished(Success(reduceResult))
         context.become(receive)
       }
-
+    case WorkCancelled(e) =>
+      replyTo ! WorkFinished(Failure(e))
   }
 }

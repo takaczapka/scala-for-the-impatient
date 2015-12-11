@@ -6,4 +6,6 @@ package chap20actors
   */
 object Ex9 {
 
+  // IGNORING. It's generally not safe for multiple threads accessing a shared variable, and actors are
+  // run by multiple threads, so by definition it's a risky business.
 }

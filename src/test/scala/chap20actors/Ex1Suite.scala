@@ -1,7 +1,6 @@
 package chap20actors
 
-import akka.actor.{ActorSystem, Props}
-import akka.testkit.{ImplicitSender, TestKit}
+import akka.actor.Props
 import chap20actors.Ex1._
 import org.scalatest._
 
